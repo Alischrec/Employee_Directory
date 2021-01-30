@@ -1,23 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect } from 'react';
+import { getEmployees } from './utils/api';
+import SearchBar from './components/searchbar'
 
 function App() {
+  const [employees, setEmployees] = React.useState([])
+  const [searchQuery, setSearchQuery] = React.useState('')
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value)
+  }
+
+  useEffect(() => {
+    getEmployees().then((results) => {
+      setEmployees(results)
+    })
+  }, [])
+  const visibleEmployees = employees.filter((employee) => {
+    const fullName = `${employee.name.first} ${employee.name.last}`.toLowerCase()
+    const query = searchQuery.toLowerCase()
+    return fullName.includes(query)
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBar search={searchQuery} handleInputChange={handleSearchChange} />
+      {visibleEmployees.map((employee, idx) => {
+        return (
+          <div key={idx}>
+            {/* {employee.picture.thumbnail} */}
+
+            {employee.name.first} {employee.name.last}
+            {employee.phone} 
+            {employee.email} 
+            {employee.dob.date}
+          </div>
+        )
+      })}
     </div>
   );
 }
