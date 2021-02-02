@@ -29,7 +29,8 @@ function App() {
       {visibleEmployees.map((employee, idx) => {
         return (
           <div key={idx}>
-            {employee.picture.thumbnail}
+            <img src={employee.picture.thumbnail} ></img>
+            
 
             {employee.name.first} {employee.name.last}
             {employee.phone} 
