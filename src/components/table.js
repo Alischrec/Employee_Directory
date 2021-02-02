@@ -1,6 +1,6 @@
 import React from "react";
 
-function Table(props) {
+function Table({visibleEmployees}) {
     return (
         <table className="table table-striped table-hover table-fluid">
 
@@ -13,7 +13,23 @@ function Table(props) {
                     <th scope="col">DOB</th>
                 </tr>
             </thead>
-        
+            <tbody>
+
+                {visibleEmployees.map((employee, idx) => {
+
+                    <div key={idx}>
+                        <td>
+                            <img src={employee.picture.thumbnail} alt='employee thumbnail' ></img>
+                        </td>
+                        <td> {employee.name.first} {employee.name.last} </td>
+                        <td> {employee.phone} </td>
+                        <td> {employee.email} </td>
+                        <td> {employee.dob.date} </td>
+                    </div>
+
+                })}
+
+            </tbody>
 
         </table>
     )

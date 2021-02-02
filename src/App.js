@@ -26,19 +26,7 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar search={searchQuery} handleInputChange={handleSearchChange} />
-      {visibleEmployees.map((employee, idx) => {
-        return (
-          <div key={idx}>
-            <img src={employee.picture.thumbnail} ></img>
-            
-
-            {employee.name.first} {employee.name.last}
-            {employee.phone} 
-            {employee.email} 
-            {employee.dob.date}
-          </div>
-        )
-      })}
+      <Table visibleEmployees = {visibleEmployees} />
     </div>
   );
 }
