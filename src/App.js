@@ -2,6 +2,8 @@ import './App.css';
 import React, { useEffect } from 'react';
 import { getEmployees } from './utils/api';
 import SearchBar from './components/searchbar'
+import Header from './components/header'
+import Table from './components/table'
 
 function App() {
   const [employees, setEmployees] = React.useState([])
@@ -22,11 +24,12 @@ function App() {
   })
   return (
     <div className="App">
+      <Header />
       <SearchBar search={searchQuery} handleInputChange={handleSearchChange} />
       {visibleEmployees.map((employee, idx) => {
         return (
           <div key={idx}>
-            {/* {employee.picture.thumbnail} */}
+            {employee.picture.thumbnail}
 
             {employee.name.first} {employee.name.last}
             {employee.phone} 
