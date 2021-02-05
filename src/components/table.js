@@ -1,6 +1,6 @@
 import React from "react";
 
-function Table({visibleEmployees}) {
+function Table({ visibleEmployees }) {
     return (
         <table className="table table-striped table-hover table-fluid">
 
@@ -16,8 +16,8 @@ function Table({visibleEmployees}) {
             <tbody>
 
                 {visibleEmployees.map((employee, idx) => {
-
-                    <div key={idx}>
+                    // console.log(employee)
+                    return (<tr key={idx}>
                         <td>
                             <img src={employee.picture.thumbnail} alt='employee thumbnail' ></img>
                         </td>
@@ -25,7 +25,7 @@ function Table({visibleEmployees}) {
                         <td> {employee.phone} </td>
                         <td> {employee.email} </td>
                         <td> {employee.dob.date} </td>
-                    </div>
+                    </tr>)
 
                 })}
 
