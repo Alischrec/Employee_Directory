@@ -1,38 +1,46 @@
 import React from "react";
 
-function Table({ visibleEmployees }) {
-    return (
-        <table className="table table-striped table-hover table-fluid">
+function Table({ visibleEmployees, handleQuery }) {
+    const [AscendingMap, setAscendingMap] = React.useState({ name: true, phone: true, email: true, dob: true })
+    const handleSortChange = (query) => {
+        handleQuery(query, !AscendingMap[query])
+        setAscendingMap({
+            ...AscendingMap,
+            [query]:!AscendingMap[query]            
+        })
 
-            <thead >
-                <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">DOB</th>
-                </tr>
-            </thead>
-            <tbody>
+}
+return (
+    <table className="table table-striped table-hover table-fluid">
 
-                {visibleEmployees.map((employee, idx) => {
-                    // console.log(employee)
-                    return (<tr key={idx}>
-                        <td>
-                            <img src={employee.picture.thumbnail} alt='employee thumbnail' ></img>
-                        </td>
-                        <td> {employee.name.first} {employee.name.last} </td>
-                        <td> {employee.phone} </td>
-                        <td> {employee.email} </td>
-                        <td> {employee.dob.date} </td>
-                    </tr>)
+        <thead >
+            <tr>
+                <th scope="col">Image</th>
+                <th onClick={() => handleSortChange('name')} scope="col">Name</th>
+                <th onClick={() => handleSortChange('phone')} scope="col">Phone</th>
+                <th onClick={() => handleSortChange('email')} scope="col">Email</th>
+                <th onClick={() => handleSortChange('dob')} scope="col">DOB</th>
+            </tr>
+        </thead>
+        <tbody>
 
-                })}
+            {visibleEmployees.map((employee, idx) => {
+                return (<tr key={idx}>
+                    <td>
+                        <img src={employee.picture.thumbnail} alt='employee thumbnail' ></img>
+                    </td>
+                    <td> {employee.name.first} {employee.name.last} </td>
+                    <td> {employee.phone} </td>
+                    <td> {employee.email} </td>
+                    <td> {employee.dob.date} </td>
+                </tr>)
 
-            </tbody>
+            })}
 
-        </table>
-    )
+        </tbody>
+
+    </table>
+)
 }
 
 
