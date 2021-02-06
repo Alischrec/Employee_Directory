@@ -21,20 +21,18 @@ Explore the [Project Page](https://github.com/Alischrec/Employee_Directory)
 * [Acknowledgements](#acknowledgements)
 
 ## About the Project:
-<!-- The focus of this project was to build a Budget Tracking Application that allows for offline access and functionality. -->
+The focus of this project was to build an Employee Directory utilizing React. This project focused on pulling data in through an outside API and sorting and filtering the data.
 
-<!-- ![Project Gif](gif.gif) -->
+![Project Gif](gif.gif)
 
 ### JavaScript:
-<!-- * [index.js](https://github.com/Alischrec/Employee_Directory/tree/main/public/index.js) -->
-<!-- * [server.js](https://github.com/Alischrec/Employee_Directory/blob/main/server.js) -->
+* [App.js](https://github.com/Alischrec/Employee_Directory/blob/main/src/App.js)
 
 ### Assets:
-<!-- * [CSS](https://github.com/Alischrec/Employee_Directory/tree/main/public/styles.css) -->
-<!-- * [Database](https://github.com/Alischrec/Employee_Directory/tree/main/public/db.js) -->
+* [src](https://github.com/Alischrec/Employee_Directory/tree/main/src)
 
 ### Built With:
-<!-- * This app is build upon [Node.js](https://nodejs.org/en/), [Express package](https://expressjs.com/), [Mongoose](https://www.mongodb.com/cloud/atlas), and the [Heroku](https://dashboard.heroku.com/apps) application. -->
+* This app is build upon [Node.js](https://nodejs.org/en/), [React](https://reactjs.org/), and the [Heroku](https://dashboard.heroku.com/apps) application.
 
 ## Getting Started:
 To get a local copy up and running follow the steps below.
