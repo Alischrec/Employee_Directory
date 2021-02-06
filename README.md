@@ -4,7 +4,7 @@
 
 Explore the [Project Page](https://github.com/Alischrec/Employee_Directory)
 
-[Deployed Application](https://fierce-crag-33475.herokuapp.com/)
+[Deployed Application](https://enigmatic-springs-37886.herokuapp.com/)
 
 ## Table of Contents
 
